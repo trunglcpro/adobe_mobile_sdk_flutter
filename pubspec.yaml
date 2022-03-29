@@ -5,8 +5,8 @@ author: Macif <contact.appmobile@macif.fr>
 homepage: https://github.com/macif-dev/adobe_mobile_sdk_flutter
 
 environment:
-  sdk: ">=2.2.0 <3.0.0"
-  flutter: ">=2.2.0"
+  sdk: ">=2.12.0 <3.0.0"
+  flutter: ">=2.0.0"
 
 dependencies:
   flutter:
