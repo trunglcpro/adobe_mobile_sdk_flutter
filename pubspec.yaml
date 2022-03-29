@@ -6,7 +6,7 @@ homepage: https://github.com/macif-dev/adobe_mobile_sdk_flutter
 
 environment:
   sdk: ">=2.2.0 <3.0.0"
-  flutter: ">=2.2"
+  flutter: ">=2.2.0"
 
 dependencies:
   flutter:
