@@ -36,48 +36,16 @@
 }
 
 - (void)trackAction:(FlutterMethodCall*)call result:(FlutterResult)result args:(NSDictionary*)args {
-  NSString *actionName = [args objectForKey:@"actionName"];
-  if(actionName != nil ){
-    NSDictionary *additionalData = [args objectForKey:@"additionalData"];
-    [self sendTrack:actionName additionalData:additionalData isState:false];
-    result([NSString stringWithFormat:@"trackAction [%@]", actionName]);
-  }else{
-    result([FlutterError errorWithCode:@"[ trackAction ERROR ] :: actionName is required" message: @"actionName is required" details: nil]);
-  }
 }
 
 - (void)trackState:(FlutterMethodCall*)call result:(FlutterResult)result args:(NSDictionary*)args {
-  NSString *screenName = [args objectForKey:@"screenName"];
-  if(screenName != nil ){
-    NSDictionary *additionalData = [args objectForKey:@"additionalData"];
-    [self sendTrack:screenName additionalData:additionalData isState:true];
-    result([NSString stringWithFormat:@"screenName [%@]", screenName]);
-  }else{
-    result([FlutterError errorWithCode:@"[ trackState ERROR ] :: screenName is required" message: @"screenName is required" details: nil]);
-  }
 }
 
 - (void)sendTrack:(NSString*)name additionalData:(NSDictionary*)additionalData isState:(bool)isState {
-
-  NSMutableDictionary *contextData = nil;
-
-  if([additionalData count] > 0){
-      contextData = [NSMutableDictionary dictionary];
-      for (NSString *key in additionalData) {
-          NSString *value = additionalData[key];
-          [contextData setObject:value forKey:key];
-      }
-  }
-
-  if(isState){
-    [ADBMobile trackState:name data:contextData];
-  }else{
-    [ADBMobile trackAction:name data:contextData];
-  }
 }
 
 - (void)trackCrash:(FlutterMethodCall*)call result:(FlutterResult)result args:(NSDictionary*)args {
-  result([NSString stringWithFormat:@"TrackCrash is not implemented"]);
+
 }
 
 @end
